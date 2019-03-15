@@ -1,0 +1,50 @@
+query ($first: Int!, $after: String!) {
+  videos(first: $first, after: $after, orderBy: "-published_at", isPublished: true) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        slug
+        title
+        duration
+        publishedAt
+        viewAmount
+        image
+      }
+    }
+  }
+  randomVideos: videos(first: $first, orderBy: "?", isPublished: true) {
+    edges {
+      node {
+        slug
+        title
+        duration
+        publishedAt
+        viewAmount
+        image
+      }
+    }
+  }
+  sources(first: $first) {
+    edges {
+      node {
+        slug
+        name
+        videoAmount
+        image
+      }
+    }
+  }
+  speakers: speakers(first: $first) {
+    edges {
+      node {
+        slug
+        name
+        videoAmount
+        image
+      }
+    }
+  }
+}

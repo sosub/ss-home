@@ -1,0 +1,62 @@
+query ($slug: String!) {
+  video(slug: $slug) {
+    slug
+    videoId
+    image
+    title
+    description
+    duration
+    viewAmount
+    publishedAt
+    viSub
+    enSub
+    viTranscript
+    enTranscript
+    source {
+      slug
+      name
+      image
+    }
+    creator: createdBy {
+      slug
+      name
+      image
+    }
+    speakers {
+      name
+      slug
+      image
+    }
+    sponsor {
+      slug
+      name
+      image
+      slogan: quote
+    }
+    tags {
+      name: slug
+      slug
+    }
+    categories {
+      name
+      slug
+    }
+    subcategories {
+      name
+      slug
+      parent: category {
+        slug
+      }
+    }
+  }
+  randomVideos: videos(first: 5, orderBy: "?") {
+    edges {
+      node {
+        slug
+        title
+        image
+        viewAmount
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+query ($queryString: String!, $first: Int!, $after: String!) {
+  searchList(query: $queryString) {
+    videos(first: $first, after: $after) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      edges {
+        node {
+          slug
+          title
+          duration
+          publishedAt
+        }
+      }
+    }
+    speakers(first: $first) {
+      edges {
+        node {
+          slug
+          name
+          videoAmount
+        }
+      }
+    }
+    sources(first: $first) {
+      edges {
+        node {
+          slug
+          name
+          videoAmount
+        }
+      }
+    }
+  }
+}

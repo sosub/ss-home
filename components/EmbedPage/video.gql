@@ -1,0 +1,14 @@
+query ($slug: String!) {
+  video(slug: $slug) {
+    slug
+    videoId
+    image (size: "large")
+    title
+    duration
+    viewAmount
+    viSub
+    enSub
+    viTranscript
+    enTranscript
+  }
+}
