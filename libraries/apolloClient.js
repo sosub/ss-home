@@ -6,7 +6,7 @@ const initNetworkInterface = token => {
   const networkInterface = createNetworkInterface({
     uri: process.env.ON_DOCKER
       ? 'http://ss-core:8000/graphql/'
-      : 'http://sosub.org/graphql/',
+      : 'https://sosub.org/graphql/',
     opts: {
       credentials: 'same-origin'
     }
