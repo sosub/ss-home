@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Document, { Head, Main, NextScript } from 'next/document';
 import Helmet from 'react-helmet';
 import { ServerStyleSheet } from 'styled-components';
@@ -48,6 +49,17 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link href="/static/home/css/player.css" rel="stylesheet" />
+
+          <script dangerouslySetInnerHTML={{__html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','UA-93147120-1');`}} />
+          
+          <script dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-93147120-1');`}} />
         </Head>
         <body>
           <div className="root">{main}</div>
